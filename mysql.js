@@ -2,11 +2,11 @@ const mysql = require('mysql');
 
 var pool = mysql.createPool({
     "connectionLimit" : 1000,
-    "user" : "root",
-    "password": "",
-    "database" : "informa_saude",
-    "host": process.env.MYSQL_HOST,
-    "port": process.env.MYSQL_PORT
+    "user" : "b08dd579777512",
+    "password": "e60b959d",
+    "database" : "heroku_b0e3208eb8e89b7",
+    "host": "us-cdbr-east-06.cleardb.net",
+    "port": 3306
 });
 
 exports.execute = (query, params=[]) => {

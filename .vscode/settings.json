@@ -1,0 +1,17 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "previewLimit": 50,
+            "server": "us-cdbr-east-06.cleardb.net",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "informa-saude-heroku",
+            "database": "heroku_b0e3208eb8e89b7",
+            "username": "b08dd579777512",
+            "password": "e60b959d"
+        }
+    ]
+}
