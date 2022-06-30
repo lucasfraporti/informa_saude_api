@@ -23,7 +23,7 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use('/categories', categoryRoute);
+app.use('/report', categoryRoute);
 
 app.use((req, res, next) => {
     const erro = new Error('Não encontrado');
