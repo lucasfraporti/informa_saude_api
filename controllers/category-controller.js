@@ -1,6 +1,29 @@
 const mysql = require('../mysql');
 
-exports.getCategories = async (req, res, next) => {
+exports.getReportActive = async (req, res, next) => {
+    try {
+        const result = await mysql.execute("SELECT * FROM report WHERE active = 1;")
+        const response = {
+            report: result.map(report => {
+                return {
+                    ID_REPORT: report.ID_REPORT,
+                    REPORTER: report.REPORTER,
+                    LATITUDE: report.LATITUDE,
+                    LONGITUDE: report.LONGITUDE,
+                    REPORT_TYPE: report.REPORT_TYPE,
+                    CONFIRMED: report.CONFIRMED,
+                    REPORT_DATE: report.REPORT_DATE,
+                    ACTIVE: report.ACTIVE
+                }
+            })
+        }
+        return res.status(200).send(response);
+    } catch (error) {
+        return res.status(500).send({ error: error });
+    }
+};
+
+exports.getAllReports = async (req, res, next) => {
     try {
         const result = await mysql.execute("SELECT * FROM report;")
         const response = {
