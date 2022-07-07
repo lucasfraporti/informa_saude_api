@@ -6,14 +6,14 @@ exports.getReportActive = async (req, res, next) => {
         const response = {
             report: result.map(report => {
                 return {
-                    ID_REPORT: report.ID_REPORT,
-                    REPORTER: report.REPORTER,
-                    LATITUDE: report.LATITUDE,
-                    LONGITUDE: report.LONGITUDE,
-                    REPORT_TYPE: report.REPORT_TYPE,
-                    CONFIRMED: report.CONFIRMED,
-                    REPORT_DATE: report.REPORT_DATE,
-                    ACTIVE: report.ACTIVE
+                    id_report: report.id_report,
+                    reporter: report.reporter,
+                    latitude: report.latitude,
+                    longitude: report.longitude,
+                    report_type: report.report_type,
+                    confirmed: report.confirmed,
+                    report_date: report.report_date,
+                    active: report.active
                 }
             })
         }
@@ -29,14 +29,14 @@ exports.getAllReports = async (req, res, next) => {
         const response = {
             report: result.map(report => {
                 return {
-                    ID_REPORT: report.ID_REPORT,
-                    REPORTER: report.REPORTER,
-                    LATITUDE: report.LATITUDE,
-                    LONGITUDE: report.LONGITUDE,
-                    REPORT_TYPE: report.REPORT_TYPE,
-                    CONFIRMED: report.CONFIRMED,
-                    REPORT_DATE: report.REPORT_DATE,
-                    ACTIVE: report.ACTIVE
+                    id_report: report.id_report,
+                    reporter: report.reporter,
+                    latitude: report.latitude,
+                    longitude: report.longitude,
+                    report_type: report.report_type,
+                    confirmed: report.confirmed,
+                    report_date: report.report_date,
+                    active: report.active
                 }
             })
         }
@@ -48,14 +48,14 @@ exports.getAllReports = async (req, res, next) => {
 
 exports.postCategory = async (req, res, next) => {
     try {
-        const query = 'INSERT INTO report (REPORTER, LATITUDE, LONGITUDE, REPORT_TYPE, CONFIRMED, ACTIVE) VALUES (?, ?, ?, ?, ?, ?)';
+        const query = 'INSERT INTO report (REPORTER, LATITUDE, LONGITUDE, REPORT_TYPE, CONFIRMED, ACTIVE) VALUES (?, ?, ?, ?, ?, ?);';
         const result = await mysql.execute(query, [
-            req.body.REPORTER,
-            req.body.LATITUDE,
-            req.body.LONGITUDE,
-            req.body.REPORT_TYPE,
-            req.body.CONFIRMED,
-            req.body.ACTIVE
+            req.body.reporter,
+            req.body.latitude,
+            req.body.longitude,
+            req.body.report_type,
+            req.body.confirmed,
+            req.body.active
         ]);
 
         const response = {
@@ -66,7 +66,7 @@ exports.postCategory = async (req, res, next) => {
                 longitude: req.body.longitude,
                 report_type: req.body.report_type,
                 confirmed: req.body.confirmed,
-                active: req.body.active,
+                active: req.body.active
             }
         }
         return res.status(201).send(response);
